@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 const style = {
     border: '1px solid black',
     position: 'relative'
@@ -15,7 +16,7 @@ class ListItem extends React.Component{
 
     toggle(){
         if(this.state.toggled)
-            this.props.update(this.props.data.name, this.name.value);
+            this.props.update(this.props.data.id, this.name.value);
 
         this.setState({toggled: !this.state.toggled});
 
@@ -42,12 +43,16 @@ class ListItem extends React.Component{
                     
                 </div>
                 <div style={{position: 'absolute', left: '90%', top:0}}>
-                    <button onClick={() => remove(data.name)}>X</button>
+                    <button onClick={() => remove(data.id)}>X</button>
                 </div>
             </div>     
         );
     }
 
 }
+    ListItem.propTypes = {
+        data: PropTypes.object.isRequired,
+        remove: PropTypes.func.isRequired
+};
 
 export default ListItem;

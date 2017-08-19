@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 const style = {
     input:{
         width: 'calc(100% - 58px)',
@@ -22,5 +23,10 @@ class Form extends React.Component{
         );
     }
 }
+
+Form.propTypes = {
+    add: PropTypes.func.isRequired,
+    value: PropTypes.string
+};
 
 export default Form;
